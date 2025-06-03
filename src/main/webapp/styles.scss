@@ -1,1 +1,35 @@
-/* You can add global styles to this file, and also import other style files */
+@mixin desktop {
+  @media only screen and (min-width: 1200px) {
+    @content
+  }
+}
+
+@mixin tablet {
+  @media only screen and (min-width: 769px) and (max-width: 1199px) {
+    @content
+  }
+}
+
+@mixin mobile {
+  @media only screen and (max-width: 768px) {
+    @content
+  }
+}
+
+/* potentialy useless for a business app */
+@mixin container {
+  display: block;
+  height: 100%;
+  overflow-y: auto;
+  @include desktop {
+    max-width: 1600px;
+    margin: 0 auto 0 auto;
+  }
+  @include tablet {
+    max-width: 880px;
+    margin: 0 auto 0 auto;
+  }
+  @include mobile {
+    max-width: 100%;
+  }
+}
